@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RegistrationModalComponent } from '../modals/registration-modal/registration-modal.component'
 import { forbiddenCharactersValidator } from '../shared/forbidden-characters.directive';
 import { requiredCharactersValidator } from '../shared/required-characters.directive';
 
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
     ])
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {}
 
@@ -50,5 +52,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.router.navigate(['/home']);
     }
+  }
+
+  public openRegistrationModal(): void {
+    this.dialog.open(RegistrationModalComponent, {
+      height: '355px',
+      width: '468px',
+      panelClass: 'custom-dialog-container'
+    });
   }
 }
