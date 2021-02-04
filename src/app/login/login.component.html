@@ -18,11 +18,11 @@
           <label>Password</label>
           <div class=hide-wrapper (click)="togglePassword()">
             <div *ngIf="displayPassword; else elseBlock">
-              <img class="login-img" src="assets/icons/icon--eye-closed.svg">
+              <img src="assets/icons/icon--eye-closed.svg">
               <span>Hide</span>
             </div>
             <ng-template #elseBlock>
-              <img class="login-img" src="assets/icons/icon--eye-open.svg">
+              <img src="assets/icons/icon--eye-open.svg">
               <span>Show</span>
             </ng-template>
           </div>
