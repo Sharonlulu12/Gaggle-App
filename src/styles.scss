@@ -1,1 +1,113 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* UI ELEMENTS */
+/* Text Button */
+.text-button {
+  padding: 0 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #263A91;
+  letter-spacing: 0.15px;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Input */
+.input-wrapper {
+  width: 100%;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(255,255,255,0.90);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30);
+  border-radius: 3px;
+
+  label {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.70);
+    letter-spacing: 0.15px;
+    line-height: 12px;
+  }
+
+  & > input {
+    width: 100%;
+    height: 33px;
+    padding-top: 6px;
+    border: none;
+    outline: none;
+
+    &.submitted {
+      padding-left: 20px;
+    }
+  }
+
+  .close-img {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 18px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .error-img {
+    position: absolute;
+    top: 18px;
+  }
+
+  .error {
+    padding-bottom: 2px;
+    font-size: 12px;
+    font-style: italic;
+    color: #FF0000;
+    letter-spacing: 0.15px;
+    line-height: 12px;
+  }
+
+  .underline {
+    display: inline-block;
+    bottom: 0;
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #263A91;
+  }
+
+  & > input:focus + .underline {
+    left: 0;
+  }
+
+  .hide-wrapper {
+    position: absolute;
+    margin-right: 8px;
+    display: flex;
+    right: 0;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgba(0,0,0,0.70);
+    letter-spacing: 0.15px;
+    text-align: right;
+    line-height: 16px;
+    cursor: pointer;
+
+    img {
+      height: 12px;
+      width: 12px;
+      padding-right: 2px;
+    }
+  }
+}
+
+/* Custom Modal */
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}

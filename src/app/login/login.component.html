@@ -1,0 +1,55 @@
+<div class="login-page">
+  <div class="login-wrapper">
+    <img class="logo" src="assets/icons/logo--Gaggle.svg">
+    <div class=login-inputs>
+      <form class="login-form" [formGroup]="loginForm" (ngSumbit)="onSubmit()">
+        <div class="input-wrapper">
+          <label>Username</label>
+          <input id="login-username" type="text" formControlName="username" [ngClass]="{'submitted': username.invalid && submitted }">
+          <span class="underline"></span>
+          <img *ngIf="username.dirty" class="close-img" src="assets/icons/icon--saltire.svg" (click)="username.reset()">
+          <div *ngIf="username.invalid && submitted" [ngClass]="'error'">
+            <img class="error-img" src="assets/icons/icon--alert.svg">
+            <div>Username is required.</div>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <label>Password</label>
+          <div class=hide-wrapper (click)="togglePassword()">
+            <div *ngIf="displayPassword; else elseBlock">
+              <img class="login-img" src="assets/icons/icon--eye-closed.svg">
+              <span>Hide</span>
+            </div>
+            <ng-template #elseBlock>
+              <img class="login-img" src="assets/icons/icon--eye-open.svg">
+              <span>Show</span>
+            </ng-template>
+          </div>
+          <input id="login-password" type={{passwordInputType}} formControlName="password" [ngClass]="{'submitted': password.invalid && submitted }">
+          <span class="underline"></span>
+          <img *ngIf="password.dirty" class="close-img" src="assets/icons/icon--saltire.svg" (click)="password.reset()">
+          <div *ngIf="password.invalid && submitted" [ngClass]="'error'">
+            <img class="error-img" src="assets/icons/icon--alert.svg">
+            <div *ngIf="password.errors.required">Password is required.</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 8 characters long.</div>
+            <div *ngIf="password.errors.forbiddenCharacter">Spaces are not allowed.</div>
+            <div *ngIf="password.errors.requiredCharacters">Special characters are required.</div>
+          </div>
+        </div>
+
+        <div class="checkbox-wrapper">
+          <input type="checkbox">
+          <label>Remember</label>
+        </div>
+        <button id="submit-btn" class="button" (click)="onSubmit()">Sign On</button>
+      </form>
+    </div>
+
+    <div class="login-actions">
+      <div id="register-btn" class="text-button vertical-bar" (click)="openRegistrationModal()">Register</div>
+      <div class="text-button">Forgot Password?</div>
+    </div>
+  </div>
+  <img class="login-img" src="assets/images/hero-image.png">
+</div>
