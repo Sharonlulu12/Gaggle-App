@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
 
   public openRegistrationModal(): void {
     this.dialog.open(RegistrationModalComponent, {
-      height: '355px',
-      width: '468px',
+      height: '365px',
+      width: '470px',
       panelClass: 'custom-dialog-container'
     });
   }

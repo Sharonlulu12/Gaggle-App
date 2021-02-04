@@ -62,7 +62,7 @@ export class RegistrationModalComponent implements OnInit {
     this.submitted = true;
 
     if (this.registrationForm.valid) {
-      this.dialogRef.close();
+      this.close();
       this.router.navigate(['/home']);
     }
   }

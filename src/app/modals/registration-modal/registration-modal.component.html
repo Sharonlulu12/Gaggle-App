@@ -7,13 +7,13 @@
       <h1>New Account</h1>
       <div class="input-wrapper">
         <label>Username</label>
-        <input required type="text" formControlName="username" [ngClass]="{'submitted': username.invalid && submitted }">
+        <input id="registration-username" type="text" formControlName="username" [ngClass]="{'submitted': username.invalid && submitted }">
+        <span class="underline"></span>
         <img *ngIf="username.dirty" class="close-img" src="assets/icons/icon--saltire.svg" (click)="username.reset()">
         <div *ngIf="username.invalid && submitted" [ngClass]="'error'">
           <img class="error-img" src="assets/icons/icon--alert.svg">
           <div>Username is required.</div>
         </div>
-        <span class="underline"></span>
       </div>
 
       <div class="input-wrapper">
@@ -28,7 +28,8 @@
             <span>Show</span>
           </ng-template>
         </div>
-        <input required type={{passwordInputType}} formControlName="password" [ngClass]="{'submitted': password.invalid && submitted }">
+        <input id="registration-password" type={{passwordInputType}} formControlName="password" [ngClass]="{'submitted': password.invalid && submitted }">
+        <span class="underline"></span>
         <img *ngIf="password.dirty" class="close-img" src="assets/icons/icon--saltire.svg" (click)="password.reset()">
         <div *ngIf="password.invalid && submitted" [ngClass]="'error'">
           <img class="error-img" src="assets/icons/icon--alert.svg">
@@ -37,19 +38,18 @@
           <div *ngIf="password.errors.forbiddenCharacter">Spaces are not allowed.</div>
           <div *ngIf="password.errors.requiredCharacters">Special characters are required.</div>
         </div>
-        <span class="underline"></span>
       </div>
 
       <div class="input-wrapper">
         <label>Email</label>
-        <input required type="text" formControlName="email" [ngClass]="{'submitted': email.invalid && submitted }">
+        <input id="registration-email" type="text" formControlName="email" [ngClass]="{'submitted': email.invalid && submitted }">
+        <span class="underline"></span>
         <img *ngIf="email.dirty" class="close-img" src="assets/icons/icon--saltire.svg" (click)="email.reset()">
         <div *ngIf="email.invalid && submitted" [ngClass]="'error'">
           <img class="error-img" src="assets/icons/icon--alert.svg">
           <div *ngIf="email.errors.required">Email is required.</div>
-          <div *ngIf="email.errors.validEmail">A valid is required.</div>
+          <div *ngIf="email.errors.validEmail">A valid email is required.</div>
         </div>
-        <span class="underline"></span>
       </div>
     </form>
   </div>
@@ -59,6 +59,3 @@
     <div (click)="onSubmit()" class="text-button">Register Account</div>
   </div>
 </div>
-
-
-
